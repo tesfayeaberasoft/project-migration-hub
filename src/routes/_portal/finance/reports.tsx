@@ -62,7 +62,7 @@ function ReportsPage() {
       <PageHeader
         eyebrow="Reports"
         title="Financial reports"
-        description={r ? `${r.title} · ${date(r.from)} – ${date(r.to)}` : undefined}
+        description={r ? `${r.title} · ${date(r.from)} – ${date(r.to)}` : ""}
         actions={
           <>
             <Button variant="outline" onClick={() => void run("xlsx")} disabled={!r || busy !== null}>
