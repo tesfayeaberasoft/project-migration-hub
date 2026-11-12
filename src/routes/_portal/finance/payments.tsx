@@ -1,4 +1,4 @@
-import { useQuery, useSuspenseQuery } from "@tanstack/react-query";
+import { useSuspenseQuery } from "@tanstack/react-query";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Banknote, CheckCircle2, Landmark } from "lucide-react";
 import { useState } from "react";
@@ -166,7 +166,6 @@ function RecordPaymentPage() {
 }
 
 function PaymentDone({ payment: p, phone, onAnother }: { payment: Payment; phone?: string | undefined; onAnother: () => void }) {
-  useQuery(q.settings());
   return (
     <>
       <PageHeader eyebrow="Payments" title="Payment recorded" />
