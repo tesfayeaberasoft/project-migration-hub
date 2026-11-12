@@ -143,7 +143,7 @@ function GuestDialog({ guest, onClose }: { guest: Guest | null; onClose: () => v
       open
       onOpenChange={(o) => !o && onClose()}
       title={guest ? "Edit guest" : "Register guest"}
-      description={guest ? undefined : "The guest signs in with this username and password, and uses the PIN to confirm charges at the desk."}
+      {...(guest ? {} : { description: "The guest signs in with this username and password, and uses the PIN to confirm charges at the desk." })}
       submitLabel={guest ? "Save changes" : "Register guest"}
       pending={save.isPending}
       onSubmit={() => save.mutate(undefined)}
