@@ -45,6 +45,7 @@ import { Route as PortalGuestPendingRouteImport } from './routes/_portal/guest/p
 import { Route as PortalGuestReceiptsRouteImport } from './routes/_portal/guest/receipts'
 import { Route as PortalCashierTransactionsIdRouteImport } from './routes/_portal/cashier/transactions/$id'
 import { Route as PortalFinanceGuestsIndexRouteImport } from './routes/_portal/finance/guests/index'
+import { Route as PortalFinanceGuestsIdRouteImport } from './routes/_portal/finance/guests/$id'
 import { Route as PortalFinanceTransactionsIdRouteImport } from './routes/_portal/finance/transactions/$id'
 
 const IndexRoute = IndexRouteImport.update({
@@ -229,6 +230,11 @@ const PortalFinanceGuestsIndexRoute =
     path: '/guests/',
     getParentRoute: () => PortalFinanceRouteRoute,
   } as any)
+const PortalFinanceGuestsIdRoute = PortalFinanceGuestsIdRouteImport.update({
+  id: '/guests/$id',
+  path: '/guests/$id',
+  getParentRoute: () => PortalFinanceRouteRoute,
+} as any)
 const PortalFinanceTransactionsIdRoute =
   PortalFinanceTransactionsIdRouteImport.update({
     id: '/transactions/$id',
@@ -271,6 +277,7 @@ export interface FileRoutesByFullPath {
   '/finance/': typeof PortalFinanceIndexRoute
   '/guest/': typeof PortalGuestIndexRoute
   '/cashier/transactions/$id': typeof PortalCashierTransactionsIdRoute
+  '/finance/guests/$id': typeof PortalFinanceGuestsIdRoute
   '/finance/transactions/$id': typeof PortalFinanceTransactionsIdRoute
   '/finance/guests/': typeof PortalFinanceGuestsIndexRoute
 }
@@ -305,6 +312,7 @@ export interface FileRoutesByTo {
   '/finance': typeof PortalFinanceIndexRoute
   '/guest': typeof PortalGuestIndexRoute
   '/cashier/transactions/$id': typeof PortalCashierTransactionsIdRoute
+  '/finance/guests/$id': typeof PortalFinanceGuestsIdRoute
   '/finance/transactions/$id': typeof PortalFinanceTransactionsIdRoute
   '/finance/guests': typeof PortalFinanceGuestsIndexRoute
 }
@@ -345,6 +353,7 @@ export interface FileRoutesById {
   '/_portal/finance/': typeof PortalFinanceIndexRoute
   '/_portal/guest/': typeof PortalGuestIndexRoute
   '/_portal/cashier/transactions/$id': typeof PortalCashierTransactionsIdRoute
+  '/_portal/finance/guests/$id': typeof PortalFinanceGuestsIdRoute
   '/_portal/finance/transactions/$id': typeof PortalFinanceTransactionsIdRoute
   '/_portal/finance/guests/': typeof PortalFinanceGuestsIndexRoute
 }
@@ -385,6 +394,7 @@ export interface FileRouteTypes {
     | '/finance/'
     | '/guest/'
     | '/cashier/transactions/$id'
+    | '/finance/guests/$id'
     | '/finance/transactions/$id'
     | '/finance/guests/'
   fileRoutesByTo: FileRoutesByTo
@@ -419,6 +429,7 @@ export interface FileRouteTypes {
     | '/finance'
     | '/guest'
     | '/cashier/transactions/$id'
+    | '/finance/guests/$id'
     | '/finance/transactions/$id'
     | '/finance/guests'
   id:
@@ -458,6 +469,7 @@ export interface FileRouteTypes {
     | '/_portal/finance/'
     | '/_portal/guest/'
     | '/_portal/cashier/transactions/$id'
+    | '/_portal/finance/guests/$id'
     | '/_portal/finance/transactions/$id'
     | '/_portal/finance/guests/'
   fileRoutesById: FileRoutesById
@@ -721,6 +733,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PortalFinanceGuestsIndexRouteImport
       parentRoute: typeof PortalFinanceRouteRoute
     }
+    '/_portal/finance/guests/$id': {
+      id: '/_portal/finance/guests/$id'
+      path: '/guests/$id'
+      fullPath: '/finance/guests/$id'
+      preLoaderRoute: typeof PortalFinanceGuestsIdRouteImport
+      parentRoute: typeof PortalFinanceRouteRoute
+    }
     '/_portal/finance/transactions/$id': {
       id: '/_portal/finance/transactions/$id'
       path: '/transactions/$id'
@@ -785,6 +804,7 @@ interface PortalFinanceRouteRouteChildren {
   PortalFinancePricesRoute: typeof PortalFinancePricesRoute
   PortalFinanceReportsRoute: typeof PortalFinanceReportsRoute
   PortalFinanceIndexRoute: typeof PortalFinanceIndexRoute
+  PortalFinanceGuestsIdRoute: typeof PortalFinanceGuestsIdRoute
   PortalFinanceTransactionsIdRoute: typeof PortalFinanceTransactionsIdRoute
   PortalFinanceGuestsIndexRoute: typeof PortalFinanceGuestsIndexRoute
 }
@@ -799,6 +819,7 @@ const PortalFinanceRouteRouteChildren: PortalFinanceRouteRouteChildren = {
   PortalFinancePricesRoute: PortalFinancePricesRoute,
   PortalFinanceReportsRoute: PortalFinanceReportsRoute,
   PortalFinanceIndexRoute: PortalFinanceIndexRoute,
+  PortalFinanceGuestsIdRoute: PortalFinanceGuestsIdRoute,
   PortalFinanceTransactionsIdRoute: PortalFinanceTransactionsIdRoute,
   PortalFinanceGuestsIndexRoute: PortalFinanceGuestsIndexRoute,
 }
