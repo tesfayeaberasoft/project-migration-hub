@@ -1,18 +1,90 @@
 {
-  "source": "code-archive (bunfig.zip — Haroni Hotel DCMS frontend, partially migrated in an earlier Lovable project)",
+  "source": "code-archive (bunfig.zip \u2014 Haroni Hotel DCMS frontend, partially migrated in an earlier Lovable project)",
   "decision": "User chose to keep their own PHP + MySQL server for data and logins (answered in this project). App uses built-in demo backend until VITE_API_BASE_URL is set.",
   "capabilities": [
-    {"capability": "code", "source": "TanStack Start frontend (same Lovable template)", "outcome": "migrate", "status": "in_progress", "next_action": "Copy source, build every placeholder page"},
-    {"capability": "schema", "source": "User's PHP + MySQL server (not in archive)", "outcome": "preserve external PHP backend (user choice)", "status": "accepted", "next_action": "None in Lovable; API contract lives in services/ + demo handlers"},
-    {"capability": "records", "source": "Live records on PHP server; demo seed bundled", "outcome": "preserve on PHP server", "status": "accepted", "next_action": "None; read live via API once URL set"},
-    {"capability": "auth identities", "source": "PHP token auth (username/password, Bearer token)", "outcome": "preserve PHP auth (user choice)", "status": "pending", "next_action": "Live login check once PHP URL provided"},
-    {"capability": "authorization", "source": "Roles admin/cashier/finance/guest; server enforces, UI gates routes", "outcome": "migrate", "status": "in_progress", "next_action": "Role-gated route layouts"},
-    {"capability": "uploaded file bytes", "source": "Brand images in src/assets", "outcome": "migrate", "status": "in_progress", "next_action": "Copy assets"},
-    {"capability": "external providers", "source": "PHP backend REST API", "outcome": "preserve", "status": "pending", "next_action": "User supplies backend web address"},
-    {"capability": "public endpoints/callbacks/webhooks/schedules", "source": "none detected in frontend", "outcome": "none", "status": "verified_absent", "next_action": "None"},
-    {"capability": "secrets", "source": "VITE_API_BASE_URL (public config, not a secret)", "outcome": "preserve", "status": "pending", "next_action": "Set when backend URL provided"},
-    {"capability": "PDF/Excel exports", "source": "jspdf, jspdf-autotable, write-excel-file", "outcome": "migrate", "status": "in_progress", "next_action": "Install packages, wire receipts/statements/reports"},
-    {"capability": "cutover", "source": "-", "outcome": "pending", "status": "pending", "next_action": "Point VITE_API_BASE_URL at PHP server; server must allow CORS from the Lovable domain"},
-    {"capability": "verification", "source": "-", "outcome": "pending", "status": "pending", "next_action": "Tests + browser walk-through on demo backend"}
+    {
+      "capability": "code",
+      "source": "TanStack Start frontend (same Lovable template)",
+      "outcome": "migrate",
+      "status": "verified",
+      "next_action": "None \u2014 all 4 portals built; typecheck clean, 15 tests pass, every page opened in browser with no errors"
+    },
+    {
+      "capability": "schema",
+      "source": "User's PHP + MySQL server (not in archive)",
+      "outcome": "preserve external PHP backend (user choice)",
+      "status": "accepted",
+      "next_action": "None in Lovable; API contract lives in services/ + demo handlers"
+    },
+    {
+      "capability": "records",
+      "source": "Live records on PHP server; demo seed bundled",
+      "outcome": "preserve on PHP server",
+      "status": "accepted",
+      "next_action": "None; read live via API once URL set"
+    },
+    {
+      "capability": "auth identities",
+      "source": "PHP token auth (username/password, Bearer token)",
+      "outcome": "preserve PHP auth (user choice)",
+      "status": "pending",
+      "next_action": "Live login check once PHP URL provided"
+    },
+    {
+      "capability": "authorization",
+      "source": "Roles admin/cashier/finance/guest; server enforces, UI gates routes",
+      "outcome": "migrate",
+      "status": "verified",
+      "next_action": "Role gates checked: each role lands on its own portal; server enforces roles per request"
+    },
+    {
+      "capability": "uploaded file bytes",
+      "source": "Brand images in src/assets",
+      "outcome": "migrate",
+      "status": "verified",
+      "next_action": "Brand images and favicon copied"
+    },
+    {
+      "capability": "external providers",
+      "source": "PHP backend REST API",
+      "outcome": "preserve",
+      "status": "pending",
+      "next_action": "User supplies backend web address"
+    },
+    {
+      "capability": "public endpoints/callbacks/webhooks/schedules",
+      "source": "none detected in frontend",
+      "outcome": "none",
+      "status": "verified_absent",
+      "next_action": "None"
+    },
+    {
+      "capability": "secrets",
+      "source": "VITE_API_BASE_URL (public config, not a secret)",
+      "outcome": "preserve",
+      "status": "pending",
+      "next_action": "Set when backend URL provided"
+    },
+    {
+      "capability": "PDF/Excel exports",
+      "source": "jspdf, jspdf-autotable, write-excel-file",
+      "outcome": "migrate",
+      "status": "verified",
+      "next_action": "Receipt, statement, report PDF and Excel downloads exercised in browser"
+    },
+    {
+      "capability": "cutover",
+      "source": "-",
+      "outcome": "pending",
+      "status": "pending",
+      "next_action": "Point VITE_API_BASE_URL at PHP server; server must allow CORS from the Lovable domain"
+    },
+    {
+      "capability": "verification",
+      "source": "-",
+      "outcome": "pending",
+      "status": "verified_demo",
+      "next_action": "End-to-end on demo backend: cashier record + PIN confirm, finance approve + payment + receipt, guest confirm/dispute, admin guest/price/backup/settings. Live PHP checks pending URL"
+    }
   ]
 }
