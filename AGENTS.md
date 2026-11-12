@@ -28,3 +28,10 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Project rules (Haroni Hotel DCMS)
+
+- All data access goes through `src/services/http.ts` (`api.*`); pages never call `fetch` directly. Why: one switch point between the external PHP REST backend and the in-browser demo backend.
+- `VITE_API_BASE_URL` selects the live PHP backend; when unset, `src/services/mock/handlers.ts` serves the same API contract from localStorage. Why: the data/auth server lives outside Lovable; keep the demo handlers in sync with any API change.
+- Shared credit math lives in `src/lib/credit.ts` and is used by both UI and demo backend. Why: UI and backend must agree on balances.
+- Portal pages live under `src/routes/_portal/<role>/` with `ssr: false` on the layout and `requireRole` in each role's `route.tsx`. Why: the session token lives in browser storage; the server enforces roles on every request.
