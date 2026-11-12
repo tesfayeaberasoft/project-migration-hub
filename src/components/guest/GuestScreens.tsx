@@ -62,7 +62,7 @@ export function GuestDashboard() {
         </Panel>
       )}
       <div className="mt-6 grid gap-6 lg:grid-cols-2">
-        <Panel delay={120}>
+        <Panel delay={120} className="min-w-0">
           <SectionTitle
             title="Recent activity"
             action={
@@ -90,7 +90,7 @@ export function GuestDashboard() {
             <EmptyState title="No activity yet" />
           )}
         </Panel>
-        <Panel delay={180}>
+        <Panel delay={180} className="min-w-0">
           <SectionTitle
             title="Notifications"
             action={

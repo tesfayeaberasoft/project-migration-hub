@@ -51,11 +51,11 @@ function FinanceDashboard() {
       </div>
 
       <div className="mt-6 grid gap-6 lg:grid-cols-[1fr_340px]">
-        <Panel>
+        <Panel className="min-w-0">
           <SectionTitle title="Credit vs payments" />
           <CreditPaymentsChart data={d.series} />
         </Panel>
-        <Panel delay={60}>
+        <Panel delay={60} className="min-w-0">
           <SectionTitle title="Waiting for you" />
           <ul className="space-y-2">
             {queue.map((x) => (
@@ -81,7 +81,7 @@ function FinanceDashboard() {
       </div>
 
       <div className="mt-6 grid gap-6 lg:grid-cols-2">
-        <Panel delay={120}>
+        <Panel delay={120} className="min-w-0">
           <SectionTitle title="Guests over their limit" />
           {d.exceeding.length === 0 ? (
             <EmptyState title="No guest is over their limit" />
@@ -99,7 +99,7 @@ function FinanceDashboard() {
             </ul>
           )}
         </Panel>
-        <Panel delay={180}>
+        <Panel delay={180} className="min-w-0">
           <SectionTitle
             title="Recent payments"
             action={
