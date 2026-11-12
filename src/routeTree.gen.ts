@@ -10,33 +10,461 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as PortalRouteRouteImport } from './routes/_portal/route'
+import { Route as PortalAdminRouteRouteImport } from './routes/_portal/admin/route'
+import { Route as PortalCashierRouteRouteImport } from './routes/_portal/cashier/route'
+import { Route as PortalFinanceRouteRouteImport } from './routes/_portal/finance/route'
+import { Route as PortalGuestRouteRouteImport } from './routes/_portal/guest/route'
+import { Route as PortalProfileRouteImport } from './routes/_portal/profile'
+import { Route as PortalAdminIndexRouteImport } from './routes/_portal/admin/index'
+import { Route as PortalAdminAuditRouteImport } from './routes/_portal/admin/audit'
+import { Route as PortalAdminBackupRouteImport } from './routes/_portal/admin/backup'
+import { Route as PortalAdminGuestsRouteImport } from './routes/_portal/admin/guests'
+import { Route as PortalAdminServicesRouteImport } from './routes/_portal/admin/services'
+import { Route as PortalAdminSettingsRouteImport } from './routes/_portal/admin/settings'
+import { Route as PortalAdminUsersRouteImport } from './routes/_portal/admin/users'
+import { Route as PortalCashierIndexRouteImport } from './routes/_portal/cashier/index'
+import { Route as PortalCashierGuestsRouteImport } from './routes/_portal/cashier/guests'
+import { Route as PortalCashierHistoryRouteImport } from './routes/_portal/cashier/history'
+import { Route as PortalCashierNewRouteImport } from './routes/_portal/cashier/new'
+import { Route as PortalCashierPendingRouteImport } from './routes/_portal/cashier/pending'
+import { Route as PortalFinanceIndexRouteImport } from './routes/_portal/finance/index'
+import { Route as PortalFinanceApprovalsRouteImport } from './routes/_portal/finance/approvals'
+import { Route as PortalFinanceExceptionsRouteImport } from './routes/_portal/finance/exceptions'
+import { Route as PortalFinanceHistoricalRouteImport } from './routes/_portal/finance/historical'
+import { Route as PortalFinanceLimitsRouteImport } from './routes/_portal/finance/limits'
+import { Route as PortalFinancePaymentHistoryRouteImport } from './routes/_portal/finance/payment-history'
+import { Route as PortalFinancePaymentsRouteImport } from './routes/_portal/finance/payments'
+import { Route as PortalFinancePricesRouteImport } from './routes/_portal/finance/prices'
+import { Route as PortalFinanceReportsRouteImport } from './routes/_portal/finance/reports'
+import { Route as PortalGuestIndexRouteImport } from './routes/_portal/guest/index'
+import { Route as PortalGuestDebtRouteImport } from './routes/_portal/guest/debt'
+import { Route as PortalGuestHistoryRouteImport } from './routes/_portal/guest/history'
+import { Route as PortalGuestPaymentsRouteImport } from './routes/_portal/guest/payments'
+import { Route as PortalGuestPendingRouteImport } from './routes/_portal/guest/pending'
+import { Route as PortalGuestReceiptsRouteImport } from './routes/_portal/guest/receipts'
+import { Route as PortalCashierTransactionsIdRouteImport } from './routes/_portal/cashier/transactions/$id'
+import { Route as PortalFinanceGuestsIndexRouteImport } from './routes/_portal/finance/guests/index'
+import { Route as PortalFinanceTransactionsIdRouteImport } from './routes/_portal/finance/transactions/$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PortalRouteRoute = PortalRouteRouteImport.update({
+  id: '/_portal',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PortalAdminRouteRoute = PortalAdminRouteRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => PortalRouteRoute,
+} as any)
+const PortalCashierRouteRoute = PortalCashierRouteRouteImport.update({
+  id: '/cashier',
+  path: '/cashier',
+  getParentRoute: () => PortalRouteRoute,
+} as any)
+const PortalFinanceRouteRoute = PortalFinanceRouteRouteImport.update({
+  id: '/finance',
+  path: '/finance',
+  getParentRoute: () => PortalRouteRoute,
+} as any)
+const PortalGuestRouteRoute = PortalGuestRouteRouteImport.update({
+  id: '/guest',
+  path: '/guest',
+  getParentRoute: () => PortalRouteRoute,
+} as any)
+const PortalProfileRoute = PortalProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => PortalRouteRoute,
+} as any)
+const PortalAdminIndexRoute = PortalAdminIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => PortalAdminRouteRoute,
+} as any)
+const PortalAdminAuditRoute = PortalAdminAuditRouteImport.update({
+  id: '/audit',
+  path: '/audit',
+  getParentRoute: () => PortalAdminRouteRoute,
+} as any)
+const PortalAdminBackupRoute = PortalAdminBackupRouteImport.update({
+  id: '/backup',
+  path: '/backup',
+  getParentRoute: () => PortalAdminRouteRoute,
+} as any)
+const PortalAdminGuestsRoute = PortalAdminGuestsRouteImport.update({
+  id: '/guests',
+  path: '/guests',
+  getParentRoute: () => PortalAdminRouteRoute,
+} as any)
+const PortalAdminServicesRoute = PortalAdminServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
+  getParentRoute: () => PortalAdminRouteRoute,
+} as any)
+const PortalAdminSettingsRoute = PortalAdminSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => PortalAdminRouteRoute,
+} as any)
+const PortalAdminUsersRoute = PortalAdminUsersRouteImport.update({
+  id: '/users',
+  path: '/users',
+  getParentRoute: () => PortalAdminRouteRoute,
+} as any)
+const PortalCashierIndexRoute = PortalCashierIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => PortalCashierRouteRoute,
+} as any)
+const PortalCashierGuestsRoute = PortalCashierGuestsRouteImport.update({
+  id: '/guests',
+  path: '/guests',
+  getParentRoute: () => PortalCashierRouteRoute,
+} as any)
+const PortalCashierHistoryRoute = PortalCashierHistoryRouteImport.update({
+  id: '/history',
+  path: '/history',
+  getParentRoute: () => PortalCashierRouteRoute,
+} as any)
+const PortalCashierNewRoute = PortalCashierNewRouteImport.update({
+  id: '/new',
+  path: '/new',
+  getParentRoute: () => PortalCashierRouteRoute,
+} as any)
+const PortalCashierPendingRoute = PortalCashierPendingRouteImport.update({
+  id: '/pending',
+  path: '/pending',
+  getParentRoute: () => PortalCashierRouteRoute,
+} as any)
+const PortalFinanceIndexRoute = PortalFinanceIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => PortalFinanceRouteRoute,
+} as any)
+const PortalFinanceApprovalsRoute = PortalFinanceApprovalsRouteImport.update({
+  id: '/approvals',
+  path: '/approvals',
+  getParentRoute: () => PortalFinanceRouteRoute,
+} as any)
+const PortalFinanceExceptionsRoute = PortalFinanceExceptionsRouteImport.update({
+  id: '/exceptions',
+  path: '/exceptions',
+  getParentRoute: () => PortalFinanceRouteRoute,
+} as any)
+const PortalFinanceHistoricalRoute = PortalFinanceHistoricalRouteImport.update({
+  id: '/historical',
+  path: '/historical',
+  getParentRoute: () => PortalFinanceRouteRoute,
+} as any)
+const PortalFinanceLimitsRoute = PortalFinanceLimitsRouteImport.update({
+  id: '/limits',
+  path: '/limits',
+  getParentRoute: () => PortalFinanceRouteRoute,
+} as any)
+const PortalFinancePaymentHistoryRoute =
+  PortalFinancePaymentHistoryRouteImport.update({
+    id: '/payment-history',
+    path: '/payment-history',
+    getParentRoute: () => PortalFinanceRouteRoute,
+  } as any)
+const PortalFinancePaymentsRoute = PortalFinancePaymentsRouteImport.update({
+  id: '/payments',
+  path: '/payments',
+  getParentRoute: () => PortalFinanceRouteRoute,
+} as any)
+const PortalFinancePricesRoute = PortalFinancePricesRouteImport.update({
+  id: '/prices',
+  path: '/prices',
+  getParentRoute: () => PortalFinanceRouteRoute,
+} as any)
+const PortalFinanceReportsRoute = PortalFinanceReportsRouteImport.update({
+  id: '/reports',
+  path: '/reports',
+  getParentRoute: () => PortalFinanceRouteRoute,
+} as any)
+const PortalGuestIndexRoute = PortalGuestIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => PortalGuestRouteRoute,
+} as any)
+const PortalGuestDebtRoute = PortalGuestDebtRouteImport.update({
+  id: '/debt',
+  path: '/debt',
+  getParentRoute: () => PortalGuestRouteRoute,
+} as any)
+const PortalGuestHistoryRoute = PortalGuestHistoryRouteImport.update({
+  id: '/history',
+  path: '/history',
+  getParentRoute: () => PortalGuestRouteRoute,
+} as any)
+const PortalGuestPaymentsRoute = PortalGuestPaymentsRouteImport.update({
+  id: '/payments',
+  path: '/payments',
+  getParentRoute: () => PortalGuestRouteRoute,
+} as any)
+const PortalGuestPendingRoute = PortalGuestPendingRouteImport.update({
+  id: '/pending',
+  path: '/pending',
+  getParentRoute: () => PortalGuestRouteRoute,
+} as any)
+const PortalGuestReceiptsRoute = PortalGuestReceiptsRouteImport.update({
+  id: '/receipts',
+  path: '/receipts',
+  getParentRoute: () => PortalGuestRouteRoute,
+} as any)
+const PortalCashierTransactionsIdRoute =
+  PortalCashierTransactionsIdRouteImport.update({
+    id: '/transactions/$id',
+    path: '/transactions/$id',
+    getParentRoute: () => PortalCashierRouteRoute,
+  } as any)
+const PortalFinanceGuestsIndexRoute =
+  PortalFinanceGuestsIndexRouteImport.update({
+    id: '/guests/',
+    path: '/guests/',
+    getParentRoute: () => PortalFinanceRouteRoute,
+  } as any)
+const PortalFinanceTransactionsIdRoute =
+  PortalFinanceTransactionsIdRouteImport.update({
+    id: '/transactions/$id',
+    path: '/transactions/$id',
+    getParentRoute: () => PortalFinanceRouteRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/admin': typeof PortalAdminRouteRouteWithChildren
+  '/cashier': typeof PortalCashierRouteRouteWithChildren
+  '/finance': typeof PortalFinanceRouteRouteWithChildren
+  '/guest': typeof PortalGuestRouteRouteWithChildren
+  '/profile': typeof PortalProfileRoute
+  '/admin/audit': typeof PortalAdminAuditRoute
+  '/admin/backup': typeof PortalAdminBackupRoute
+  '/admin/guests': typeof PortalAdminGuestsRoute
+  '/admin/services': typeof PortalAdminServicesRoute
+  '/admin/settings': typeof PortalAdminSettingsRoute
+  '/admin/users': typeof PortalAdminUsersRoute
+  '/cashier/guests': typeof PortalCashierGuestsRoute
+  '/cashier/history': typeof PortalCashierHistoryRoute
+  '/cashier/new': typeof PortalCashierNewRoute
+  '/cashier/pending': typeof PortalCashierPendingRoute
+  '/finance/approvals': typeof PortalFinanceApprovalsRoute
+  '/finance/exceptions': typeof PortalFinanceExceptionsRoute
+  '/finance/historical': typeof PortalFinanceHistoricalRoute
+  '/finance/limits': typeof PortalFinanceLimitsRoute
+  '/finance/payment-history': typeof PortalFinancePaymentHistoryRoute
+  '/finance/payments': typeof PortalFinancePaymentsRoute
+  '/finance/prices': typeof PortalFinancePricesRoute
+  '/finance/reports': typeof PortalFinanceReportsRoute
+  '/guest/debt': typeof PortalGuestDebtRoute
+  '/guest/history': typeof PortalGuestHistoryRoute
+  '/guest/payments': typeof PortalGuestPaymentsRoute
+  '/guest/pending': typeof PortalGuestPendingRoute
+  '/guest/receipts': typeof PortalGuestReceiptsRoute
+  '/admin/': typeof PortalAdminIndexRoute
+  '/cashier/': typeof PortalCashierIndexRoute
+  '/finance/': typeof PortalFinanceIndexRoute
+  '/guest/': typeof PortalGuestIndexRoute
+  '/cashier/transactions/$id': typeof PortalCashierTransactionsIdRoute
+  '/finance/transactions/$id': typeof PortalFinanceTransactionsIdRoute
+  '/finance/guests/': typeof PortalFinanceGuestsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/profile': typeof PortalProfileRoute
+  '/admin/audit': typeof PortalAdminAuditRoute
+  '/admin/backup': typeof PortalAdminBackupRoute
+  '/admin/guests': typeof PortalAdminGuestsRoute
+  '/admin/services': typeof PortalAdminServicesRoute
+  '/admin/settings': typeof PortalAdminSettingsRoute
+  '/admin/users': typeof PortalAdminUsersRoute
+  '/cashier/guests': typeof PortalCashierGuestsRoute
+  '/cashier/history': typeof PortalCashierHistoryRoute
+  '/cashier/new': typeof PortalCashierNewRoute
+  '/cashier/pending': typeof PortalCashierPendingRoute
+  '/finance/approvals': typeof PortalFinanceApprovalsRoute
+  '/finance/exceptions': typeof PortalFinanceExceptionsRoute
+  '/finance/historical': typeof PortalFinanceHistoricalRoute
+  '/finance/limits': typeof PortalFinanceLimitsRoute
+  '/finance/payment-history': typeof PortalFinancePaymentHistoryRoute
+  '/finance/payments': typeof PortalFinancePaymentsRoute
+  '/finance/prices': typeof PortalFinancePricesRoute
+  '/finance/reports': typeof PortalFinanceReportsRoute
+  '/guest/debt': typeof PortalGuestDebtRoute
+  '/guest/history': typeof PortalGuestHistoryRoute
+  '/guest/payments': typeof PortalGuestPaymentsRoute
+  '/guest/pending': typeof PortalGuestPendingRoute
+  '/guest/receipts': typeof PortalGuestReceiptsRoute
+  '/admin': typeof PortalAdminIndexRoute
+  '/cashier': typeof PortalCashierIndexRoute
+  '/finance': typeof PortalFinanceIndexRoute
+  '/guest': typeof PortalGuestIndexRoute
+  '/cashier/transactions/$id': typeof PortalCashierTransactionsIdRoute
+  '/finance/transactions/$id': typeof PortalFinanceTransactionsIdRoute
+  '/finance/guests': typeof PortalFinanceGuestsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/_portal': typeof PortalRouteRouteWithChildren
+  '/_portal/admin': typeof PortalAdminRouteRouteWithChildren
+  '/_portal/cashier': typeof PortalCashierRouteRouteWithChildren
+  '/_portal/finance': typeof PortalFinanceRouteRouteWithChildren
+  '/_portal/guest': typeof PortalGuestRouteRouteWithChildren
+  '/_portal/profile': typeof PortalProfileRoute
+  '/_portal/admin/audit': typeof PortalAdminAuditRoute
+  '/_portal/admin/backup': typeof PortalAdminBackupRoute
+  '/_portal/admin/guests': typeof PortalAdminGuestsRoute
+  '/_portal/admin/services': typeof PortalAdminServicesRoute
+  '/_portal/admin/settings': typeof PortalAdminSettingsRoute
+  '/_portal/admin/users': typeof PortalAdminUsersRoute
+  '/_portal/cashier/guests': typeof PortalCashierGuestsRoute
+  '/_portal/cashier/history': typeof PortalCashierHistoryRoute
+  '/_portal/cashier/new': typeof PortalCashierNewRoute
+  '/_portal/cashier/pending': typeof PortalCashierPendingRoute
+  '/_portal/finance/approvals': typeof PortalFinanceApprovalsRoute
+  '/_portal/finance/exceptions': typeof PortalFinanceExceptionsRoute
+  '/_portal/finance/historical': typeof PortalFinanceHistoricalRoute
+  '/_portal/finance/limits': typeof PortalFinanceLimitsRoute
+  '/_portal/finance/payment-history': typeof PortalFinancePaymentHistoryRoute
+  '/_portal/finance/payments': typeof PortalFinancePaymentsRoute
+  '/_portal/finance/prices': typeof PortalFinancePricesRoute
+  '/_portal/finance/reports': typeof PortalFinanceReportsRoute
+  '/_portal/guest/debt': typeof PortalGuestDebtRoute
+  '/_portal/guest/history': typeof PortalGuestHistoryRoute
+  '/_portal/guest/payments': typeof PortalGuestPaymentsRoute
+  '/_portal/guest/pending': typeof PortalGuestPendingRoute
+  '/_portal/guest/receipts': typeof PortalGuestReceiptsRoute
+  '/_portal/admin/': typeof PortalAdminIndexRoute
+  '/_portal/cashier/': typeof PortalCashierIndexRoute
+  '/_portal/finance/': typeof PortalFinanceIndexRoute
+  '/_portal/guest/': typeof PortalGuestIndexRoute
+  '/_portal/cashier/transactions/$id': typeof PortalCashierTransactionsIdRoute
+  '/_portal/finance/transactions/$id': typeof PortalFinanceTransactionsIdRoute
+  '/_portal/finance/guests/': typeof PortalFinanceGuestsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/admin'
+    | '/cashier'
+    | '/finance'
+    | '/guest'
+    | '/profile'
+    | '/admin/audit'
+    | '/admin/backup'
+    | '/admin/guests'
+    | '/admin/services'
+    | '/admin/settings'
+    | '/admin/users'
+    | '/cashier/guests'
+    | '/cashier/history'
+    | '/cashier/new'
+    | '/cashier/pending'
+    | '/finance/approvals'
+    | '/finance/exceptions'
+    | '/finance/historical'
+    | '/finance/limits'
+    | '/finance/payment-history'
+    | '/finance/payments'
+    | '/finance/prices'
+    | '/finance/reports'
+    | '/guest/debt'
+    | '/guest/history'
+    | '/guest/payments'
+    | '/guest/pending'
+    | '/guest/receipts'
+    | '/admin/'
+    | '/cashier/'
+    | '/finance/'
+    | '/guest/'
+    | '/cashier/transactions/$id'
+    | '/finance/transactions/$id'
+    | '/finance/guests/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/profile'
+    | '/admin/audit'
+    | '/admin/backup'
+    | '/admin/guests'
+    | '/admin/services'
+    | '/admin/settings'
+    | '/admin/users'
+    | '/cashier/guests'
+    | '/cashier/history'
+    | '/cashier/new'
+    | '/cashier/pending'
+    | '/finance/approvals'
+    | '/finance/exceptions'
+    | '/finance/historical'
+    | '/finance/limits'
+    | '/finance/payment-history'
+    | '/finance/payments'
+    | '/finance/prices'
+    | '/finance/reports'
+    | '/guest/debt'
+    | '/guest/history'
+    | '/guest/payments'
+    | '/guest/pending'
+    | '/guest/receipts'
+    | '/admin'
+    | '/cashier'
+    | '/finance'
+    | '/guest'
+    | '/cashier/transactions/$id'
+    | '/finance/transactions/$id'
+    | '/finance/guests'
+  id:
+    | '__root__'
+    | '/'
+    | '/_portal'
+    | '/_portal/admin'
+    | '/_portal/cashier'
+    | '/_portal/finance'
+    | '/_portal/guest'
+    | '/_portal/profile'
+    | '/_portal/admin/audit'
+    | '/_portal/admin/backup'
+    | '/_portal/admin/guests'
+    | '/_portal/admin/services'
+    | '/_portal/admin/settings'
+    | '/_portal/admin/users'
+    | '/_portal/cashier/guests'
+    | '/_portal/cashier/history'
+    | '/_portal/cashier/new'
+    | '/_portal/cashier/pending'
+    | '/_portal/finance/approvals'
+    | '/_portal/finance/exceptions'
+    | '/_portal/finance/historical'
+    | '/_portal/finance/limits'
+    | '/_portal/finance/payment-history'
+    | '/_portal/finance/payments'
+    | '/_portal/finance/prices'
+    | '/_portal/finance/reports'
+    | '/_portal/guest/debt'
+    | '/_portal/guest/history'
+    | '/_portal/guest/payments'
+    | '/_portal/guest/pending'
+    | '/_portal/guest/receipts'
+    | '/_portal/admin/'
+    | '/_portal/cashier/'
+    | '/_portal/finance/'
+    | '/_portal/guest/'
+    | '/_portal/cashier/transactions/$id'
+    | '/_portal/finance/transactions/$id'
+    | '/_portal/finance/guests/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  PortalRouteRoute: typeof PortalRouteRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +476,380 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_portal': {
+      id: '/_portal'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof PortalRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_portal/admin': {
+      id: '/_portal/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof PortalAdminRouteRouteImport
+      parentRoute: typeof PortalRouteRoute
+    }
+    '/_portal/cashier': {
+      id: '/_portal/cashier'
+      path: '/cashier'
+      fullPath: '/cashier'
+      preLoaderRoute: typeof PortalCashierRouteRouteImport
+      parentRoute: typeof PortalRouteRoute
+    }
+    '/_portal/finance': {
+      id: '/_portal/finance'
+      path: '/finance'
+      fullPath: '/finance'
+      preLoaderRoute: typeof PortalFinanceRouteRouteImport
+      parentRoute: typeof PortalRouteRoute
+    }
+    '/_portal/guest': {
+      id: '/_portal/guest'
+      path: '/guest'
+      fullPath: '/guest'
+      preLoaderRoute: typeof PortalGuestRouteRouteImport
+      parentRoute: typeof PortalRouteRoute
+    }
+    '/_portal/profile': {
+      id: '/_portal/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof PortalProfileRouteImport
+      parentRoute: typeof PortalRouteRoute
+    }
+    '/_portal/admin/': {
+      id: '/_portal/admin/'
+      path: '/'
+      fullPath: '/admin/'
+      preLoaderRoute: typeof PortalAdminIndexRouteImport
+      parentRoute: typeof PortalAdminRouteRoute
+    }
+    '/_portal/admin/audit': {
+      id: '/_portal/admin/audit'
+      path: '/audit'
+      fullPath: '/admin/audit'
+      preLoaderRoute: typeof PortalAdminAuditRouteImport
+      parentRoute: typeof PortalAdminRouteRoute
+    }
+    '/_portal/admin/backup': {
+      id: '/_portal/admin/backup'
+      path: '/backup'
+      fullPath: '/admin/backup'
+      preLoaderRoute: typeof PortalAdminBackupRouteImport
+      parentRoute: typeof PortalAdminRouteRoute
+    }
+    '/_portal/admin/guests': {
+      id: '/_portal/admin/guests'
+      path: '/guests'
+      fullPath: '/admin/guests'
+      preLoaderRoute: typeof PortalAdminGuestsRouteImport
+      parentRoute: typeof PortalAdminRouteRoute
+    }
+    '/_portal/admin/services': {
+      id: '/_portal/admin/services'
+      path: '/services'
+      fullPath: '/admin/services'
+      preLoaderRoute: typeof PortalAdminServicesRouteImport
+      parentRoute: typeof PortalAdminRouteRoute
+    }
+    '/_portal/admin/settings': {
+      id: '/_portal/admin/settings'
+      path: '/settings'
+      fullPath: '/admin/settings'
+      preLoaderRoute: typeof PortalAdminSettingsRouteImport
+      parentRoute: typeof PortalAdminRouteRoute
+    }
+    '/_portal/admin/users': {
+      id: '/_portal/admin/users'
+      path: '/users'
+      fullPath: '/admin/users'
+      preLoaderRoute: typeof PortalAdminUsersRouteImport
+      parentRoute: typeof PortalAdminRouteRoute
+    }
+    '/_portal/cashier/': {
+      id: '/_portal/cashier/'
+      path: '/'
+      fullPath: '/cashier/'
+      preLoaderRoute: typeof PortalCashierIndexRouteImport
+      parentRoute: typeof PortalCashierRouteRoute
+    }
+    '/_portal/cashier/guests': {
+      id: '/_portal/cashier/guests'
+      path: '/guests'
+      fullPath: '/cashier/guests'
+      preLoaderRoute: typeof PortalCashierGuestsRouteImport
+      parentRoute: typeof PortalCashierRouteRoute
+    }
+    '/_portal/cashier/history': {
+      id: '/_portal/cashier/history'
+      path: '/history'
+      fullPath: '/cashier/history'
+      preLoaderRoute: typeof PortalCashierHistoryRouteImport
+      parentRoute: typeof PortalCashierRouteRoute
+    }
+    '/_portal/cashier/new': {
+      id: '/_portal/cashier/new'
+      path: '/new'
+      fullPath: '/cashier/new'
+      preLoaderRoute: typeof PortalCashierNewRouteImport
+      parentRoute: typeof PortalCashierRouteRoute
+    }
+    '/_portal/cashier/pending': {
+      id: '/_portal/cashier/pending'
+      path: '/pending'
+      fullPath: '/cashier/pending'
+      preLoaderRoute: typeof PortalCashierPendingRouteImport
+      parentRoute: typeof PortalCashierRouteRoute
+    }
+    '/_portal/finance/': {
+      id: '/_portal/finance/'
+      path: '/'
+      fullPath: '/finance/'
+      preLoaderRoute: typeof PortalFinanceIndexRouteImport
+      parentRoute: typeof PortalFinanceRouteRoute
+    }
+    '/_portal/finance/approvals': {
+      id: '/_portal/finance/approvals'
+      path: '/approvals'
+      fullPath: '/finance/approvals'
+      preLoaderRoute: typeof PortalFinanceApprovalsRouteImport
+      parentRoute: typeof PortalFinanceRouteRoute
+    }
+    '/_portal/finance/exceptions': {
+      id: '/_portal/finance/exceptions'
+      path: '/exceptions'
+      fullPath: '/finance/exceptions'
+      preLoaderRoute: typeof PortalFinanceExceptionsRouteImport
+      parentRoute: typeof PortalFinanceRouteRoute
+    }
+    '/_portal/finance/historical': {
+      id: '/_portal/finance/historical'
+      path: '/historical'
+      fullPath: '/finance/historical'
+      preLoaderRoute: typeof PortalFinanceHistoricalRouteImport
+      parentRoute: typeof PortalFinanceRouteRoute
+    }
+    '/_portal/finance/limits': {
+      id: '/_portal/finance/limits'
+      path: '/limits'
+      fullPath: '/finance/limits'
+      preLoaderRoute: typeof PortalFinanceLimitsRouteImport
+      parentRoute: typeof PortalFinanceRouteRoute
+    }
+    '/_portal/finance/payment-history': {
+      id: '/_portal/finance/payment-history'
+      path: '/payment-history'
+      fullPath: '/finance/payment-history'
+      preLoaderRoute: typeof PortalFinancePaymentHistoryRouteImport
+      parentRoute: typeof PortalFinanceRouteRoute
+    }
+    '/_portal/finance/payments': {
+      id: '/_portal/finance/payments'
+      path: '/payments'
+      fullPath: '/finance/payments'
+      preLoaderRoute: typeof PortalFinancePaymentsRouteImport
+      parentRoute: typeof PortalFinanceRouteRoute
+    }
+    '/_portal/finance/prices': {
+      id: '/_portal/finance/prices'
+      path: '/prices'
+      fullPath: '/finance/prices'
+      preLoaderRoute: typeof PortalFinancePricesRouteImport
+      parentRoute: typeof PortalFinanceRouteRoute
+    }
+    '/_portal/finance/reports': {
+      id: '/_portal/finance/reports'
+      path: '/reports'
+      fullPath: '/finance/reports'
+      preLoaderRoute: typeof PortalFinanceReportsRouteImport
+      parentRoute: typeof PortalFinanceRouteRoute
+    }
+    '/_portal/guest/': {
+      id: '/_portal/guest/'
+      path: '/'
+      fullPath: '/guest/'
+      preLoaderRoute: typeof PortalGuestIndexRouteImport
+      parentRoute: typeof PortalGuestRouteRoute
+    }
+    '/_portal/guest/debt': {
+      id: '/_portal/guest/debt'
+      path: '/debt'
+      fullPath: '/guest/debt'
+      preLoaderRoute: typeof PortalGuestDebtRouteImport
+      parentRoute: typeof PortalGuestRouteRoute
+    }
+    '/_portal/guest/history': {
+      id: '/_portal/guest/history'
+      path: '/history'
+      fullPath: '/guest/history'
+      preLoaderRoute: typeof PortalGuestHistoryRouteImport
+      parentRoute: typeof PortalGuestRouteRoute
+    }
+    '/_portal/guest/payments': {
+      id: '/_portal/guest/payments'
+      path: '/payments'
+      fullPath: '/guest/payments'
+      preLoaderRoute: typeof PortalGuestPaymentsRouteImport
+      parentRoute: typeof PortalGuestRouteRoute
+    }
+    '/_portal/guest/pending': {
+      id: '/_portal/guest/pending'
+      path: '/pending'
+      fullPath: '/guest/pending'
+      preLoaderRoute: typeof PortalGuestPendingRouteImport
+      parentRoute: typeof PortalGuestRouteRoute
+    }
+    '/_portal/guest/receipts': {
+      id: '/_portal/guest/receipts'
+      path: '/receipts'
+      fullPath: '/guest/receipts'
+      preLoaderRoute: typeof PortalGuestReceiptsRouteImport
+      parentRoute: typeof PortalGuestRouteRoute
+    }
+    '/_portal/cashier/transactions/$id': {
+      id: '/_portal/cashier/transactions/$id'
+      path: '/transactions/$id'
+      fullPath: '/cashier/transactions/$id'
+      preLoaderRoute: typeof PortalCashierTransactionsIdRouteImport
+      parentRoute: typeof PortalCashierRouteRoute
+    }
+    '/_portal/finance/guests/': {
+      id: '/_portal/finance/guests/'
+      path: '/guests'
+      fullPath: '/finance/guests/'
+      preLoaderRoute: typeof PortalFinanceGuestsIndexRouteImport
+      parentRoute: typeof PortalFinanceRouteRoute
+    }
+    '/_portal/finance/transactions/$id': {
+      id: '/_portal/finance/transactions/$id'
+      path: '/transactions/$id'
+      fullPath: '/finance/transactions/$id'
+      preLoaderRoute: typeof PortalFinanceTransactionsIdRouteImport
+      parentRoute: typeof PortalFinanceRouteRoute
+    }
   }
 }
 
+interface PortalAdminRouteRouteChildren {
+  PortalAdminAuditRoute: typeof PortalAdminAuditRoute
+  PortalAdminBackupRoute: typeof PortalAdminBackupRoute
+  PortalAdminGuestsRoute: typeof PortalAdminGuestsRoute
+  PortalAdminServicesRoute: typeof PortalAdminServicesRoute
+  PortalAdminSettingsRoute: typeof PortalAdminSettingsRoute
+  PortalAdminUsersRoute: typeof PortalAdminUsersRoute
+  PortalAdminIndexRoute: typeof PortalAdminIndexRoute
+}
+
+const PortalAdminRouteRouteChildren: PortalAdminRouteRouteChildren = {
+  PortalAdminAuditRoute: PortalAdminAuditRoute,
+  PortalAdminBackupRoute: PortalAdminBackupRoute,
+  PortalAdminGuestsRoute: PortalAdminGuestsRoute,
+  PortalAdminServicesRoute: PortalAdminServicesRoute,
+  PortalAdminSettingsRoute: PortalAdminSettingsRoute,
+  PortalAdminUsersRoute: PortalAdminUsersRoute,
+  PortalAdminIndexRoute: PortalAdminIndexRoute,
+}
+
+const PortalAdminRouteRouteWithChildren =
+  PortalAdminRouteRoute._addFileChildren(PortalAdminRouteRouteChildren)
+
+interface PortalCashierRouteRouteChildren {
+  PortalCashierGuestsRoute: typeof PortalCashierGuestsRoute
+  PortalCashierHistoryRoute: typeof PortalCashierHistoryRoute
+  PortalCashierNewRoute: typeof PortalCashierNewRoute
+  PortalCashierPendingRoute: typeof PortalCashierPendingRoute
+  PortalCashierIndexRoute: typeof PortalCashierIndexRoute
+  PortalCashierTransactionsIdRoute: typeof PortalCashierTransactionsIdRoute
+}
+
+const PortalCashierRouteRouteChildren: PortalCashierRouteRouteChildren = {
+  PortalCashierGuestsRoute: PortalCashierGuestsRoute,
+  PortalCashierHistoryRoute: PortalCashierHistoryRoute,
+  PortalCashierNewRoute: PortalCashierNewRoute,
+  PortalCashierPendingRoute: PortalCashierPendingRoute,
+  PortalCashierIndexRoute: PortalCashierIndexRoute,
+  PortalCashierTransactionsIdRoute: PortalCashierTransactionsIdRoute,
+}
+
+const PortalCashierRouteRouteWithChildren =
+  PortalCashierRouteRoute._addFileChildren(PortalCashierRouteRouteChildren)
+
+interface PortalFinanceRouteRouteChildren {
+  PortalFinanceApprovalsRoute: typeof PortalFinanceApprovalsRoute
+  PortalFinanceExceptionsRoute: typeof PortalFinanceExceptionsRoute
+  PortalFinanceHistoricalRoute: typeof PortalFinanceHistoricalRoute
+  PortalFinanceLimitsRoute: typeof PortalFinanceLimitsRoute
+  PortalFinancePaymentHistoryRoute: typeof PortalFinancePaymentHistoryRoute
+  PortalFinancePaymentsRoute: typeof PortalFinancePaymentsRoute
+  PortalFinancePricesRoute: typeof PortalFinancePricesRoute
+  PortalFinanceReportsRoute: typeof PortalFinanceReportsRoute
+  PortalFinanceIndexRoute: typeof PortalFinanceIndexRoute
+  PortalFinanceTransactionsIdRoute: typeof PortalFinanceTransactionsIdRoute
+  PortalFinanceGuestsIndexRoute: typeof PortalFinanceGuestsIndexRoute
+}
+
+const PortalFinanceRouteRouteChildren: PortalFinanceRouteRouteChildren = {
+  PortalFinanceApprovalsRoute: PortalFinanceApprovalsRoute,
+  PortalFinanceExceptionsRoute: PortalFinanceExceptionsRoute,
+  PortalFinanceHistoricalRoute: PortalFinanceHistoricalRoute,
+  PortalFinanceLimitsRoute: PortalFinanceLimitsRoute,
+  PortalFinancePaymentHistoryRoute: PortalFinancePaymentHistoryRoute,
+  PortalFinancePaymentsRoute: PortalFinancePaymentsRoute,
+  PortalFinancePricesRoute: PortalFinancePricesRoute,
+  PortalFinanceReportsRoute: PortalFinanceReportsRoute,
+  PortalFinanceIndexRoute: PortalFinanceIndexRoute,
+  PortalFinanceTransactionsIdRoute: PortalFinanceTransactionsIdRoute,
+  PortalFinanceGuestsIndexRoute: PortalFinanceGuestsIndexRoute,
+}
+
+const PortalFinanceRouteRouteWithChildren =
+  PortalFinanceRouteRoute._addFileChildren(PortalFinanceRouteRouteChildren)
+
+interface PortalGuestRouteRouteChildren {
+  PortalGuestDebtRoute: typeof PortalGuestDebtRoute
+  PortalGuestHistoryRoute: typeof PortalGuestHistoryRoute
+  PortalGuestPaymentsRoute: typeof PortalGuestPaymentsRoute
+  PortalGuestPendingRoute: typeof PortalGuestPendingRoute
+  PortalGuestReceiptsRoute: typeof PortalGuestReceiptsRoute
+  PortalGuestIndexRoute: typeof PortalGuestIndexRoute
+}
+
+const PortalGuestRouteRouteChildren: PortalGuestRouteRouteChildren = {
+  PortalGuestDebtRoute: PortalGuestDebtRoute,
+  PortalGuestHistoryRoute: PortalGuestHistoryRoute,
+  PortalGuestPaymentsRoute: PortalGuestPaymentsRoute,
+  PortalGuestPendingRoute: PortalGuestPendingRoute,
+  PortalGuestReceiptsRoute: PortalGuestReceiptsRoute,
+  PortalGuestIndexRoute: PortalGuestIndexRoute,
+}
+
+const PortalGuestRouteRouteWithChildren =
+  PortalGuestRouteRoute._addFileChildren(PortalGuestRouteRouteChildren)
+
+interface PortalRouteRouteChildren {
+  PortalAdminRouteRoute: typeof PortalAdminRouteRouteWithChildren
+  PortalCashierRouteRoute: typeof PortalCashierRouteRouteWithChildren
+  PortalFinanceRouteRoute: typeof PortalFinanceRouteRouteWithChildren
+  PortalGuestRouteRoute: typeof PortalGuestRouteRouteWithChildren
+  PortalProfileRoute: typeof PortalProfileRoute
+}
+
+const PortalRouteRouteChildren: PortalRouteRouteChildren = {
+  PortalAdminRouteRoute: PortalAdminRouteRouteWithChildren,
+  PortalCashierRouteRoute: PortalCashierRouteRouteWithChildren,
+  PortalFinanceRouteRoute: PortalFinanceRouteRouteWithChildren,
+  PortalGuestRouteRoute: PortalGuestRouteRouteWithChildren,
+  PortalProfileRoute: PortalProfileRoute,
+}
+
+const PortalRouteRouteWithChildren = PortalRouteRoute._addFileChildren(
+  PortalRouteRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  PortalRouteRoute: PortalRouteRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
